@@ -7,21 +7,28 @@ import java.util.Calendar;
  */
 public class SeleniumException extends Exception {
 
-    public SeleniumException (Exception e){
-        System.out.println("Exception encountered : "+ e.getMessage());
-        System.out.println("Time : "+ Calendar.getInstance().getTime()+"\nAt:-");
-        int i =0;
-        for (StackTraceElement st : e.getStackTrace())
-        {
-            i++;
-            System.out.println("Class : " + st.getClassName());
-            System.out.println("Method : " +  st.getMethodName());
-            System.out.println("Line : " + st.getLineNumber());
-            if (i==1)
-                System.out.println("Called from:-");
-            else if (i==2){
-                break;
-            }
-        }
+    public SeleniumException(String s){
+        super(s);
     }
+    public SeleniumException (){
+    }
+     public String toString(){
+
+         String s = "Exception encountered : "+ getMessage();
+         s+="\nTime : "+ Calendar.getInstance().getTime()+"\nAt:-";
+         int i =0;
+         for (StackTraceElement st : getStackTrace())
+         {
+             i++;
+             s+="\nClass : " + st.getClassName();
+             s+="\nMethod : " +  st.getMethodName();
+             s+="\nLine : " + st.getLineNumber();
+             if (i==1)
+                 s+="\nCalled from:-";
+             else if (i==2){
+                 break;
+             }
+         }
+         return s;
+     }
 }

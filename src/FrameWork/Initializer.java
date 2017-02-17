@@ -4,9 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import java.io.FileInputStream;
-import java.util.Iterator;
 import java.util.Properties;
 
 /**
@@ -33,22 +31,19 @@ public class Initializer  {
             try {
                 Properties prop = new Properties();
                 prop.load(new FileInputStream("D:\\IntelliJ Projects\\Demo\\driver.properties"));
-                Iterator<Object> iter = prop.keySet().iterator();
-                String key = (String) iter.next();
-                if (key.equalsIgnoreCase("BrowserName")) {
-                    if (((String) prop.get(key)).equalsIgnoreCase("FireFox")) {
-                        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Vijeet\\Downloads\\geckodriver-v0.14.0-win64\\geckodriver.exe");
-                        driver = new FirefoxDriver();
-                    } else if (((String) prop.get(iter)).equalsIgnoreCase("Chrome")) {
-                        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Vijeet\\Downloads\\geckodriver-v0.14.0-win64\\geckodriver.exe");
-                        driver = new ChromeDriver();
-                    } else if (((String) prop.get(iter)).equalsIgnoreCase("IE")) {
-                        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Vijeet\\Downloads\\geckodriver-v0.14.0-win64\\geckodriver.exe");
-                        driver = new ChromeDriver();
-                    }
+                String key = prop.getProperty("BrowserName");
+                if (key.equalsIgnoreCase("FireFox")) {
+                    System.setProperty("webdriver.gecko.driver", "C:\\Users\\Vijeet\\Downloads\\geckodriver-v0.14.0-win64\\geckodriver.exe");
+                    driver = new FirefoxDriver();
+                } else if (key.equalsIgnoreCase("Chrome")) {
+                    System.setProperty("webdriver.gecko.driver", "C:\\Users\\Vijeet\\Downloads\\geckodriver-v0.14.0-win64\\geckodriver.exe");
+                    driver = new ChromeDriver();
+                } else if (key.equalsIgnoreCase("IE")) {
+                    System.setProperty("webdriver.gecko.driver", "C:\\Users\\Vijeet\\Downloads\\geckodriver-v0.14.0-win64\\geckodriver.exe");
+                    driver = new ChromeDriver();
                 }
             } catch (Exception e) {
-                throw new SeleniumException(new Exception("Error initializing driver"));
+                throw new SeleniumException("Error initializing driver");
             }
         }
     }
@@ -67,7 +62,7 @@ public class Initializer  {
             driver.findElement(By.xpath(p)).sendKeys(value);
         }
         else
-            throw new SeleniumException(new Exception("No matching locator found"));
+            throw new SeleniumException("No matching locator found");
     }
 
     public void click (String path) throws SeleniumException {
@@ -84,7 +79,7 @@ public class Initializer  {
             driver.findElement(By.xpath(p)).click();
         }
         else
-            throw new SeleniumException(new Exception("No matching locator found"));
+            throw new SeleniumException("No matching locator found");
     }
 
     public void clickOnHomeLink(){
