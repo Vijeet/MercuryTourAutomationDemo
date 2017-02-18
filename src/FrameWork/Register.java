@@ -20,59 +20,80 @@ public class Register extends Initializer {
     private static final String CONFIRM_PASSWORD_LOCATOR ="//a[//input[@name='confirmPassword']]";
     private static final String SUBMIT_BUTTON_LOCATOR ="//a[//input[@name='register']]";
 
+    public Register() throws SeleniumException {
+        super();
+        if (!driver.getCurrentUrl().equalsIgnoreCase("http://newtours.demoaut.com/mercuryregister.php"))
+            driver.get("http://newtours.demoaut.com/mercuryregister.php");
+        logger.info("get url : http://newtours.demoaut.com/mercuryregister.php");
+    }
+
     public void fillUserName(String user) throws SeleniumException {
         this.enter(USERNAME_LOCATOR,user);
+        logger.info("Function : fillUserName");
     }
 
     public void fillFirstName(String user) throws SeleniumException {
+        logger.info("Function : fillFirstName");
         this.enter(FIRSTNAME_LOCATOR,user);
     }
 
     public void fillLastName(String user) throws SeleniumException {
+        logger.info("Function : fillLastName");
         this.enter(LASTNAME_LOCATOR,user);
     }
 
     public void fillPhone(String user) throws SeleniumException {
+        logger.info("Function : fillPhone");
         this.enter(PHONE_LOCATOR,user);
     }
 
     public void fillEmail(String user) throws SeleniumException {
+        logger.info("Function : fillEmail");
         this.enter(EMAIL_LOCATOR,user);
     }
 
     public void fillAddress1(String user) throws SeleniumException {
+        logger.info("Function : fillAddress1");
         this.enter(ADDRESS_1_LOCATOR,user);
     }
 
     public void fillAddress2(String user) throws SeleniumException {
+        logger.info("Function : fillAddress2");
         this.enter(ADDRESS_2_LOCATOR,user);
     }
 
     public void fillCity(String user) throws SeleniumException {
+        logger.info("Function : fillCity");
         this.enter(CITY_LOCATOR,user);
     }
 
     public void fillState(String user) throws SeleniumException {
+        logger.info("Function : fillState");
         this.enter(STATE_LOCATOR,user);
     }
 
     public void fillPostalCode(String user) throws SeleniumException {
+        logger.info("Function : fillPostalCode");
         this.enter(POSTAL_CODE_LOCATOR,user);
     }
 
     public void fillPassword(String user) throws SeleniumException {
+        logger.info("Function : fillPassword");
         this.enter(PASSWORD_LOCATOR,user);
     }
 
     public void fillConfirmPassword(String user) throws SeleniumException {
+        logger.info("Function : fillConfirmPassword");
         this.enter(CONFIRM_PASSWORD_LOCATOR,user);
     }
 
     public void clickSubmit() throws SeleniumException {
+        logger.info("Function : clickSubmit");
         this.click(SUBMIT_BUTTON_LOCATOR);
     }
 
     public void selectCountry(int index) throws SeleniumException {
+        logger.info("Function : selectCountry( By Index)");
         Select select;
         try {
             select = new Select(driver.findElement(By.xpath(COUNTRY_LOCATOR)));
@@ -89,6 +110,7 @@ public class Register extends Initializer {
     }
 
     public void selectCountry(String value) throws SeleniumException {
+        logger.info("Function : selectCountry(By name)");
         Select select;
         try {
             select = new Select(driver.findElement(By.xpath(COUNTRY_LOCATOR)));
@@ -102,12 +124,6 @@ public class Register extends Initializer {
         catch (Exception e){
             throw new SeleniumException("No such element");
         }
-    }
-
-    public Register() throws SeleniumException {
-        super();
-        if (!driver.getCurrentUrl().equalsIgnoreCase("http://newtours.demoaut.com/mercuryregister.php"))
-            driver.get("http://newtours.demoaut.com/mercuryregister.php");
     }
 
 }

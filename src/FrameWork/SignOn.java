@@ -17,6 +17,7 @@ public class SignOn extends Initializer {
         super();
         if (!driver.getCurrentUrl().equalsIgnoreCase("http://newtours.demoaut.com/mercurysignon.php"))
             driver.get("http://newtours.demoaut.com/mercurysignon.php");
+        logger.info("get url : http://newtours.demoaut.com/mercurysignon.php");
     }
 
     public static void main(String[] args) throws SeleniumException{
@@ -27,14 +28,17 @@ public class SignOn extends Initializer {
     }
 
     public void fillUserName(String user) throws SeleniumException {
+        logger.info("Function : fillUserName()");
         this.enter(USERNAME_LOCATOR,user);
     }
 
     public void fillPassword(String pass) throws SeleniumException {
+        logger.info("Function : fillPassword()");
         this.enter(PASSWORD_LOCATOR,pass);
     }
 
     public void clickLogin() throws SeleniumException {
+        logger.info("Function : clickLogin()");
         this.click(LOGIN_BUTTON_LOCATOR);
     }
 
