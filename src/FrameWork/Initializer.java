@@ -154,4 +154,7 @@ public class Initializer  {
         driver.findElement(By.xpath(CONTACT_LINK_LOCATOR)).click();
     }
 
+    public String getText(String path){
+        return (driver.findElement(By.xpath(path)).getText());
+    }
 }

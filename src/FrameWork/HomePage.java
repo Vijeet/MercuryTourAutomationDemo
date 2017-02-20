@@ -9,13 +9,25 @@ public class HomePage extends Initializer {
     // private static final String PASSWORD_LOCATOR_BY_NAME = "@name[password]";
     // private static final String LOGIN_BUTTON_LOCATOR_BY_NAME = "@name[login]";
 
+    public static String getUsernameLocator() {
+        return USERNAME_LOCATOR.substring(4,USERNAME_LOCATOR.length()-1);
+    }
+
+    public static String getPasswordLocator() {
+        return PASSWORD_LOCATOR.substring(4,PASSWORD_LOCATOR.length()-1);
+    }
+
+    public static String getLoginButtonLocator() {
+        return LOGIN_BUTTON_LOCATOR.substring(4,PASSWORD_LOCATOR.length()-1);
+    }
+
     private static final String USERNAME_LOCATOR = "//a[//input[@name='userName']]";
     private static final String PASSWORD_LOCATOR = "//a[//input[@name='password']]";
     private static final String LOGIN_BUTTON_LOCATOR = "//a[//input[@name='login']]";
 
     public HomePage() throws SeleniumException {
         super();
-        if (driver.getCurrentUrl().equalsIgnoreCase("http://newtours.demoaut.com/index.php"))
+        if (!driver.getCurrentUrl().equalsIgnoreCase("http://newtours.demoaut.com/index.php"))
             driver.get("http://newtours.demoaut.com/index.php");
     }
 

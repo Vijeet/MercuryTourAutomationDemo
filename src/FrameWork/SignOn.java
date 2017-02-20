@@ -13,6 +13,18 @@ public class SignOn extends Initializer {
     private static final String PASSWORD_LOCATOR = "//a[//input[@name='password']]";
     private static final String LOGIN_BUTTON_LOCATOR = "//a[//input[@name='login']]";
 
+    public static String getUsernameLocator() {
+        return USERNAME_LOCATOR.substring(4,USERNAME_LOCATOR.length()-1);
+    }
+
+    public static String getPasswordLocator() {
+        return PASSWORD_LOCATOR.substring(4,PASSWORD_LOCATOR.length()-1);
+    }
+
+    public static String getLoginButtonLocator() {
+        return LOGIN_BUTTON_LOCATOR.substring(4,PASSWORD_LOCATOR.length()-1);
+    }
+
     public SignOn() throws SeleniumException {
         super();
         if (!driver.getCurrentUrl().equalsIgnoreCase("http://newtours.demoaut.com/mercurysignon.php"))
