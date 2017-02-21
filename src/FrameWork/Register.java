@@ -16,7 +16,7 @@ public class Register extends Initializer {
     private static final String POSTAL_CODE_LOCATOR ="//a[//input[@name='postalCode']]";
     private static final String COUNTRY_LOCATOR ="//a[//select[@name='country']]";
     private static final String USERNAME_LOCATOR ="//a[//input[@name='email']]";
-    private static final String PASSWORD_LOCATOR ="/a[//input[@name='password']]";
+    private static final String PASSWORD_LOCATOR ="//a[//input[@name='password']]";
     private static final String CONFIRM_PASSWORD_LOCATOR ="//a[//input[@name='confirmPassword']]";
     private static final String SUBMIT_BUTTON_LOCATOR ="//a[//input[@name='register']]";
 
@@ -96,7 +96,8 @@ public class Register extends Initializer {
         logger.info("Function : selectCountry( By Index)");
         Select select;
         try {
-            select = new Select(driver.findElement(By.xpath(COUNTRY_LOCATOR)));
+            select = new Select(driver.findElement(By.name("country")));
+            //select = new Select(driver.findElement(By.xpath(COUNTRY_LOCATOR)));
         }
         catch (Exception e){
             throw new SeleniumException("Locator not found");
@@ -113,7 +114,8 @@ public class Register extends Initializer {
         logger.info("Function : selectCountry(By name)");
         Select select;
         try {
-            select = new Select(driver.findElement(By.xpath(COUNTRY_LOCATOR)));
+            select = new Select(driver.findElement(By.name("country")));
+            //select = new Select(driver.findElement(By.xpath(COUNTRY_LOCATOR)));
         }
         catch (Exception e){
             throw new SeleniumException("Locator not found");
@@ -124,6 +126,62 @@ public class Register extends Initializer {
         catch (Exception e){
             throw new SeleniumException("No such element");
         }
+    }
+
+    public static String getFirstnameLocator() {
+        return FIRSTNAME_LOCATOR.substring(4,FIRSTNAME_LOCATOR.length()-1);
+    }
+
+    public static String getLastnameLocator() {
+        return LASTNAME_LOCATOR.substring(4,LASTNAME_LOCATOR.length()-1);
+    }
+
+    public static String getPhoneLocator() {
+        return PHONE_LOCATOR.substring(4,PHONE_LOCATOR.length()-1);
+    }
+
+    public static String getEmailLocator() {
+        return EMAIL_LOCATOR.substring(4,EMAIL_LOCATOR.length()-1);
+    }
+
+    public static String getAddress1Locator() {
+        return ADDRESS_1_LOCATOR.substring(4,ADDRESS_1_LOCATOR.length()-1);
+    }
+
+    public static String getAddress2Locator() {
+        return ADDRESS_2_LOCATOR.substring(4,ADDRESS_2_LOCATOR.length()-1);
+    }
+
+    public static String getCityLocator() {
+        return CITY_LOCATOR.substring(4,CITY_LOCATOR.length()-1);
+    }
+
+    public static String getStateLocator() {
+        return STATE_LOCATOR.substring(4,STATE_LOCATOR.length()-1);
+    }
+
+    public static String getPostalCodeLocator() {
+        return POSTAL_CODE_LOCATOR.substring(4,POSTAL_CODE_LOCATOR.length()-1);
+    }
+
+    public static String getCountryLocator() {
+        return COUNTRY_LOCATOR.substring(4,COUNTRY_LOCATOR.length()-1);
+    }
+
+    public static String getUsernameLocator() {
+        return USERNAME_LOCATOR.substring(4,USERNAME_LOCATOR.length()-1);
+    }
+
+    public static String getPasswordLocator() {
+        return PASSWORD_LOCATOR.substring(4,PASSWORD_LOCATOR.length()-1);
+    }
+
+    public static String getConfirmPasswordLocator() {
+        return CONFIRM_PASSWORD_LOCATOR.substring(4,CONFIRM_PASSWORD_LOCATOR.length()-1);
+    }
+
+    public static String getSubmitButtonLocator() {
+        return SUBMIT_BUTTON_LOCATOR.substring(4,SUBMIT_BUTTON_LOCATOR.length()-1);
     }
 
 }

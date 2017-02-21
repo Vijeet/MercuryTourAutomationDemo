@@ -157,4 +157,5 @@ public class Initializer  {
     public String getText(String path){
         return (driver.findElement(By.xpath(path)).getText());
     }
+
 }
