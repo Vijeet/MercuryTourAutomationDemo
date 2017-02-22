@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="FirstSuite" annotations="JDK" verbose="1" parallel="classes" thread-count="1">
+    <test name="AllTest1">
+        <classes>
+            <class name="TestCases.AllTestCases"/>
+        </classes>
+    </test>
+    <test name="AllTest2">
+        <classes>
+            <class name="TestCases.AllTestCases2"/>
+        </classes>
+    </test>
+    <test name="AllTest3">
+        <classes>
+            <class name="TestCases.AllTestCases3"/>
+        </classes>
+    </test>
+    <test name="AllTest4">
+        <classes>
+            <class name="TestCases.AllTestCases4"/>
+        </classes>
+    </test>
+</suite>

@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
 import java.io.FileInputStream;
 import java.util.Properties;
 
@@ -35,6 +37,7 @@ public class Initializer  {
         logger = Logger.getLogger(Initializer.class);
         DOMConfigurator.configure("log4j.xml");
         logger.info("Constructor : Initializer()");
+        //DesiredCapabilities capability;
         if (driver==null) {
             try {
                 Properties prop = new Properties();
@@ -44,11 +47,19 @@ public class Initializer  {
                 if (key.equalsIgnoreCase("FireFox")) {
                     System.setProperty("webdriver.gecko.driver", "C:\\Users\\Vijeet\\Downloads\\geckodriver-v0.14.0-win64\\geckodriver.exe");
                     driver = new FirefoxDriver();
+                    //capability = DesiredCapabilities.firefox();
+                    //driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capability);
                 } else if (key.equalsIgnoreCase("Chrome")) {
-                    System.setProperty("webdriver.gecko.driver", "C:\\Users\\Vijeet\\Downloads\\geckodriver-v0.14.0-win64\\geckodriver.exe");
+                    System.setProperty("webdriver.chrome.driver", "C:\\Users\\Vijeet\\Downloads\\chromedriver_win32\\chromedriver.exe");
                     driver = new ChromeDriver();
+                    //For Grid implementation
+                    //capability = DesiredCapabilities.chrome();
+                    //capability.setBrowserName("chrome");
+                    //capability.setPlatform(Platform.VISTA);
+                    //driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capability);
+
                 } else if (key.equalsIgnoreCase("IE")) {
-                    System.setProperty("webdriver.gecko.driver", "C:\\Users\\Vijeet\\Downloads\\geckodriver-v0.14.0-win64\\geckodriver.exe");
+                    System.setProperty("webdriver.ie.driver", "C:\\Users\\Vijeet\\Downloads\\geckodriver-v0.14.0-win64\\geckodriver.exe");
                     driver = new ChromeDriver();
                 }
                 logger.info("Driver initialized ");
