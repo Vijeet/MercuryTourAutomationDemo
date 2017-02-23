@@ -36,7 +36,7 @@ public class AllTestCases extends TestConfig{
         logger.log(LogStatus.PASS,"lastname entered");
         r.fillPhone("9787");
         logger.log(LogStatus.PASS,"phone number entered");
-        r.fillEmail("sd@gmail.com");
+        r.fillEmail("s@gmail.com");
         logger.log(LogStatus.PASS,"email entered");
         r.fillAddress1("ananth");
         logger.log(LogStatus.PASS,"address 1 entered");

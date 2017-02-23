@@ -48,9 +48,8 @@ public class TestConfig {
             logger.log(LogStatus.PASS, "Screenshot below :- " + logger.addScreenCapture(dest));
         }
         else if (result.getStatus() == ITestResult.FAILURE) {
-            logger.log(LogStatus.FAIL,"Test Failed");
+            logger.log(LogStatus.FAIL,"Test Failed : "+result.getThrowable().getMessage(), result.getThrowable());
             logger.log(LogStatus.FAIL, "Screenshot below :- " + logger.addScreenCapture(dest));
-            logger.log(LogStatus.FAIL, getClass().getEnclosingMethod().getName(), "Failed here");
         }
         else if (result.getStatus() == ITestResult.SKIP) {
             logger.log(LogStatus.SKIP, "Test skipped");
